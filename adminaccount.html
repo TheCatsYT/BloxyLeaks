@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BloxyLeaks Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(img.jpg) no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 5px;
+            color: #777;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+
+        button {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>BloxyLeaks Admin Panel</h1>
+
+        <h2>Moderation History</h2>
+        <p>10/22/2022 - Strike! User: Blender#2044 User ID: 862389282198388786 Strike Number: 1</p>
+        <p>10/22/2022 - Strike! User: Lego UserID: 760441533022732318 Strike Number: 1</p>
+        <p>10/22/2022 - Strike Appealed! User: Blender#2044 UserID: 862389282198388786 Strike: 0</p>
+        <p>1/04/2023 - Warned! User: mars UserID: 1020253339700707400 Warning: 1</p>
+        <p>1/07/2023 - Warned and Striked! User: mars UserID: 1020253339700707400 Strike: 1</p>
+        <p>1/08/2023 - Blacklisted! User: mars UserID: 1020253339700707400</p>
+        <p>1/24/2023 - Strike! User: patriot_ UserID: 1022980522797969418 Strike: 1</p>
+        <p>1/24/2023 - Strike! User: Blender#2044 UserID: 862389282198388786 Strike: 1</p>
+        <p>4/19/2023 - Warning! User: patriot_ UserID: 1022980522797969418 Warning: 1</p>
+        <p>6/21/2023 - Strike! User: patriot_ UserID: 1022980522797969418 Strike: 1</p>
+        <p>6/21/2023 - Strike! User: patriot_ UserID: 1022980522797969418 Strike: 2</p>
+
+        <h2>Appeal Transcripts</h2>
+        <p>Capy-10-22-2022: <a href="https://docs.google.com/document/d/1R-yTkr8e5wQ6crtlu6woZRK-O7nLvEuGd0WNnR81jwU/edit?usp=sharing" target="_blank">Appeal Transcript Link</a></p>
+
+        <h2>Administration Ranks</h2>
+        <p>Administration - Administrators of the server.</p>
+        <p>Council Department - Manages the staff team.</p>
+        <p>Management - Manages the server.</p>
+        <p>Ownership - Owners of the server.</p>
+
+        <h2>Contact</h2>
+        <p>Discord: Yessir#4014 - Head Council/Co-Owner</p>
+        <p>Discord: Websie#5551 - Assistant Head Council/Co-Owner</p>
+        <p>Discord: Bloxy#4476 - Owner (Use only as a last resort)</p>
+
+        <footer>
+            <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
+            <button onclick="logout()">Logout</button>
+        </footer>
+    </div>
+
+    <script>
+      // Function to clear the authentication flag from local storage and redirect to the login page
+      function logout() {
+          localStorage.removeItem('bloxyleaks_auth');
+          window.location.href = 'index.html';
+      }
+
+      // Function to check if the user is authenticated
+      function isAuthenticated() {
+          return localStorage.getItem('bloxyleaks_auth') === 'adminauthenticated';
+      }
+
+      // If the user is not authenticated, redirect them to the login page
+      if (!isAuthenticated()) {
+          window.location.href = 'index.html';
+      }
+  </script>
+
+</body>
+</html>

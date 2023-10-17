@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="bloxyleaks.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxyLeaks Admin Panel Sign-In</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="loginForm">
+            <h1>BloxyLeaks Admin Sign-In</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox" name="remember"> Remember me</label>
+                <a href="#" onclick="redirectToForgotPassword()">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to check if the user is authenticated
+        function isAuthenticated() {
+            return localStorage.getItem('bloxyleaks_auth') === 'authenticated';
+        }
+
+        // If the user is authenticated, redirect them to the protected page
+        if (isAuthenticated()) {
+            window.location.href = 'realprotected.html';
+        }
+
+        function redirectToForgotPassword() {
+            window.location.href = 'forgot-password.html';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            // Simulate an AJAX request to the server for authentication
+            // In a real application, replace this with an actual AJAX call to your server
+            // For this example, we're using setTimeout to simulate the AJAX call
+            setTimeout(function () {
+                if (username === 'adminaccount' && password === 'password') {
+                    // Authentication successful, set the authentication flag in localStorage
+                    localStorage.setItem('bloxyleaks_auth', 'adminauthenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'adminaccount.html';
+                } else if (username === "admin" && password === "password") {
+                    localStorage.setItem('bloxyleaks_auth', 'not-approved');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=not-approved; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'not-approved.html';
+                } else if (username === 'Rohan' && password === '1554') {
+                    // Second set of credentials for testing purposes
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "Websie" && password === "1870") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "13ayir" && password === "9764") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "Patriot" && password === "3267") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "D !" && password === "1251") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "Lego" && password === "7564") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=authenticated; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else if (username === "Yessir" && password === "2154") {
+                    localStorage.setItem('bloxyleaks_auth', 'authenticated');
+                    // Set the authentication cookie to expire in one day
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 1);
+                    const expires = expirationDate.toUTCString();
+                    document.cookie = `bloxyleaks_auth=not-approved; expires=${expires}; path=/`;
+                    // Set the username in the cookie
+                    document.cookie = `username=${username}; expires=${expires}; path=/`;
+
+                    window.location.href = 'realprotected.html';
+                } else {
+                    alert('Incorrect username or password. Please try again.');
+                }
+            }, 1000); // Simulate a 1-second delay for the AJAX call
+        });
+    </script>
+</body>
+</html>

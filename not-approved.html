@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="bloxyleaks.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Termination - BloxyLeaks Staff Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(img.jpg) no-repeat;;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #f44336;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        code {
+            font-size: 20px;
+            font-weight: bold;
+            color: #777;
+            display: block;
+            padding: 5px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block; /* Changed this from "inline-block" to "block" */
+            margin: 20px auto; /* Added margin to center the button */
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your account has been terminated from the BloxyLeaks Staff Team</h1>
+        <p>You no longer have permission to view this page. Please try again later.</p>
+        <code>Error Code: 142</code>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Function to clear the authentication flag from local storage and redirect to the login page
+        function logout() {
+            localStorage.removeItem('bloxyleaks_auth');
+            window.location.href = 'index.html';
+        }
+  
+        // Function to check if the user is authenticated
+        function isAuthenticated() {
+            return localStorage.getItem('bloxyleaks_auth') === 'not-approved';
+        }
+  
+        // If the user is not authenticated, redirect them to the login page
+        if (!isAuthenticated()) {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

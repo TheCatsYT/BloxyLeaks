@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BloxyLeaks Information Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(img.jpg) no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #777;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+
+        button {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>BloxyLeaks Information Page</h1>
+        <h2><span id="username"></span></h2>
+
+        <h2>Summary</h2>
+        <p>Welcome to the BloxyLeaks Information Page. Here, we provide an overview of the BloxyLeaks Staff Team.</p>
+
+        <h2>About</h2>
+        <p>The BloxyLeaks staff team is a diverse group comprising various departments, including moderation, administration, council, management, and ownership. The council department plays a pivotal role in overseeing and managing staff duties, ensuring efficiency and excellence.</p>
+
+        <h2>Ranks</h2>
+        <p>The BloxyLeaks Staff Team consists of the following ranks:</p>
+        <ul>
+            <li><strong>Moderation:</strong> Responsible for managing moderation on the server.</li>
+            <li><strong>Administration:</strong> Comprising the server administrators.</li>
+            <li><strong>Council Department:</strong> Oversees and manages the entire staff team.</li>
+            <li><strong>Management:</strong> Responsible for server management.</li>
+            <li><strong>Ownership:</strong> The owners of the server.</li>
+        </ul>
+
+        <h2>Departments</h2>
+        <p id="departments"></p>
+
+        <footer>
+            <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
+            <button onclick="logout()">Logout</button>
+        </footer>
+    </div>
+
+    <script>
+        // Function to clear the authentication flag from local storage and redirect to the login page
+        function logout() {
+            localStorage.removeItem('bloxyleaks_auth');
+            window.location.href = './';
+        }
+
+        // Function to check if the user is authenticated
+        function isAuthenticated() {
+            return localStorage.getItem('bloxyleaks_auth') === 'authenticated';
+        }
+
+        // Function to get and display the username from the cookie
+        function displayUsername() {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith('username=')) {
+                    const username = cookie.substring('username='.length);
+                    document.getElementById('username').textContent = `Hello, ${username}!`;
+
+                    // Check the username and customize content based on the username
+                    if (username === 'Yessir') {
+                        document.getElementById('departments').textContent = 'As a member of the Co-Owner department, you hold significant responsibilities, including overseeing the staff team, hosting staff meetings, and maintaining server integrity.';
+                    } else if (username === 'Rohan') {
+                        document.getElementById('departments').textContent = 'In the Moderation department, your role involves maintaining a safe and orderly server environment through moderation and active engagement with members.';
+                    } else if (username === 'Websie') {
+                        document.getElementById('departments').textContent = 'As a member of the Co-Owner department, you hold significant responsibilities, including overseeing the staff team, hosting staff meetings, and maintaining server integrity.';
+                    } else if (username === '13ayir') {
+                        document.getElementById('departments').textContent = 'As a member of the Co-Owner department, you hold significant responsibilities, including overseeing the staff team, hosting staff meetings, and maintaining server integrity.';
+                    } else if (username === 'Patriot') {
+                        document.getElementById('departments').textContent = 'In the Event department, your role is to host engaging events for Discord server members.';
+                    } else if (username === 'D !') {
+                        document.getElementById('departments').textContent = 'As a member of the Co-Owner department, you hold significant responsibilities, including overseeing the staff team, hosting staff meetings, and maintaining server integrity.';
+                    } else if (username === 'Lego') {
+                        document.getElementById('departments').textContent = 'In the Operations department, you supervise the staff team and assist the co-owner department in enforcing server rules.';
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        // Call the function to display the username when the page loads
+        window.addEventListener('load', function () {
+            if (!isAuthenticated()) {
+                window.location.href = './';
+            } else {
+                displayUsername();
+            }
+        });
+
+    </script>
+</body>
+</html>
