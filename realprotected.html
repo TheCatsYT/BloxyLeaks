@@ -102,7 +102,7 @@
         // Function to clear the authentication flag from local storage and redirect to the login page
         function logout() {
             localStorage.removeItem('bloxyleaks_auth');
-            window.location.href = './';
+            window.location.href = 'admin.html';
         }
 
         // Function to check if the user is authenticated
@@ -144,7 +144,7 @@
         // Call the function to display the username when the page loads
         window.addEventListener('load', function () {
             if (!isAuthenticated()) {
-                window.location.href = './';
+                window.location.href = 'admin.html';
             } else {
                 displayUsername();
             }
