@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>You have been blocked!</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #666;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.blocked-message {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  text-align: center; /* Center align the contents */
+}
+
+.blocked-message h1 {
+  color: #333;
+}
+
+.blocked-message p {
+  color: #666;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+<div class="blocked-message">
+  <h1>You have been blocked!</h1>
+  <p>You have been blocked from accessing this website for the following reason:</p>
+  <ul>
+    <li>You have violated our terms of service.</li>
+    <li>You have engaged in spam or abusive behavior.</li>
+    <li>Your IP address has been flagged as suspicious.</li>
+  </ul>
+  <p>If you believe that this has been done in error, please contact us @iluvjoshallen#0</p>
+  <div class="centered"> <!-- Centered content -->
+    <p>Your IP:</p>
+    <code id="user-ip">Loading...</code>
+  </div>
+</div>
+</body>
+<script>
+  fetch('https://api.ipify.org/?format=json')
+  .then(response => response.json())
+  .then(data => {
+    const userIpElement = document.getElementById('user-ip');
+    userIpElement.textContent = data.ip || 'Unable to fetch IP';
+  })
+  .catch(error => {
+    const userIpElement = document.getElementById('user-ip');
+    userIpElement.textContent = 'Unable to fetch IP';
+  });
+</script>
+</html>

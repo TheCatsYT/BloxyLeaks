@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+
+    <h2>Introduction</h2>
+    <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We may collect personal information that you voluntarily provide to us when using our services, including but not limited to your name, email address, and any other information you choose to share with us.</p>
+
+    <h2>How We Use Your Information</h2>
+    <p>We may use the information we collect from you for various purposes, including to provide, maintain, and improve our services, communicate with you, and send you updates.</p>
+
+    <h2>Disclosure of Your Information</h2>
+    <p>We do not disclose any of your personal information to third-party websites.</p>
+
+    <h2>Security</h2>
+    <p>We take reasonable measures to protect your information, but no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns about our Privacy Policy, please contact us at iluvjoshallen#0.</p>
+
+    <p>This Privacy Policy was last updated on 9/23/2023.</p>
+</body>
+
+  <script>
+         function isBlockedIP(ip) {
+                // Replace this with the actual URL of your blocked_ips.txt file
+                var blockedIPsURL = 'blocked_ips.txt';
+
+                // Fetch the blocked IP list
+                return fetch(blockedIPsURL)
+                    .then(response => response.text())
+                    .then(text => {
+                        var blockedIPs = text.split('\n');
+                        return blockedIPs.includes(ip);
+                    })
+                    .catch(error => {
+                        console.error("Error fetching blocked IPs: " + error);
+                        return false;
+                    });
+                  }
+
+                  // Function to log the user's IP address and check if it's blocked
+            function logAndCheckUserIP() {
+                fetch('https://api.ipify.org/?format=json')
+                    .then(response => response.json())
+                    .then(data => {
+                        var userIP = data.ip;
+                        console.log("User's IP address: " + userIP);
+
+                        // Check if the user's IP is blocked
+                        isBlockedIP(userIP)
+                            .then(isBlocked => {
+                                if (isBlocked) {
+                                    console.log("User's IP is blocked.");
+                                    // Redirect the user to the blocked page here
+                                    window.location.href = "blocked.html";
+                                } else {
+                                    console.log("User's IP is not blocked.");
+                                }
+                            });
+                    })
+                    .catch(error => console.error("Error fetching IP: " + error));
+            }
+
+            // Call the function to log and check the user's IP when the page loads
+            logAndCheckUserIP();
+  </script>
+</html>
